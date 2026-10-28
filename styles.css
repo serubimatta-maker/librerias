@@ -1,0 +1,279 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    color: #333;
+    background: #fff;
+    font-family: Arial, sans-serif;
+}
+
+button,
+a {
+    font: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+#layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+#nav {
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 2;
+    width: 220px;
+    padding: 1.5rem 1rem;
+    overflow-y: auto;
+    color: #fff;
+    background: #273746;
+}
+
+.nav-menu-button {
+    display: none;
+}
+
+.nav-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.primary-button,
+.secondary-button {
+    padding: 0.65rem 1rem;
+    border: 0;
+    border-radius: 3px;
+}
+
+.primary-button {
+    color: #fff;
+    background: #1f8dd6;
+}
+
+.secondary-button {
+    color: #444;
+    background: #eee;
+}
+
+.pure-menu-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.pure-menu-link {
+    display: block;
+    padding: 0.7rem 0.5rem;
+    color: #d7e0e7;
+}
+
+.pure-menu-link:hover,
+.pure-menu-link:focus {
+    color: #fff;
+    background: #354b5e;
+}
+
+.pure-menu-heading {
+    display: block;
+    padding: 1.2rem 0.5rem 0.5rem;
+    color: #9fb3c1;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+#list {
+    flex: 0 0 340px;
+    margin-left: 220px;
+    border-right: 1px solid #ddd;
+}
+
+#main {
+    min-width: 0;
+    flex: 1;
+}
+
+.email-item {
+    display: flex;
+    gap: 0.8rem;
+    padding: 1rem;
+    border-bottom: 1px solid #e5e5e5;
+    cursor: pointer;
+}
+
+.email-item:hover {
+    background: #f5f8fa;
+}
+
+.email-item-selected {
+    background: #eef6fc;
+}
+
+.email-item-unread .email-name,
+.email-item-unread .email-subject {
+    font-weight: 700;
+}
+
+.email-avatar {
+    display: block;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.email-item .pure-u-3-4 {
+    min-width: 0;
+}
+
+.email-name,
+.email-subject,
+.email-desc {
+    margin: 0 0 0.35rem;
+}
+
+.email-name {
+    color: #777;
+    font-size: 0.8rem;
+}
+
+.email-subject {
+    font-size: 0.95rem;
+}
+
+.email-desc {
+    display: -webkit-box;
+    overflow: hidden;
+    color: #777;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    -webkit-box-orient: vertical;
+}
+
+.email-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.email-content-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.email-content-title {
+    margin: 0;
+    font-size: 1.6rem;
+}
+
+.email-content-subtitle {
+    color: #777;
+    font-size: 0.9rem;
+}
+
+.email-content-subtitle a {
+    color: #1f8dd6;
+}
+
+.email-content-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+.email-content-body {
+    padding-top: 1rem;
+    line-height: 1.7;
+}
+
+.email-label-personal,
+.email-label-work,
+.email-label-travel {
+    display: inline-block;
+    width: 0.65rem;
+    height: 0.65rem;
+    margin-right: 0.5rem;
+    border-radius: 50%;
+}
+
+.email-label-personal {
+    background: #1f8dd6;
+}
+
+.email-label-work {
+    background: #5aba59;
+}
+
+.email-label-travel {
+    background: #df2d4f;
+}
+
+@media (max-width: 800px) {
+    #nav {
+        width: 190px;
+        transform: translateX(-100%);
+        transition: transform 0.2s ease;
+    }
+
+    #nav.active {
+        transform: translateX(0);
+    }
+
+    .nav-menu-button {
+        position: fixed;
+        top: 0.75rem;
+        left: 0.75rem;
+        z-index: 3;
+        display: block;
+        padding: 0.65rem 0.8rem;
+        color: #fff;
+        background: #273746;
+        border-radius: 3px;
+    }
+
+    #list {
+        flex-basis: 300px;
+        margin-left: 0;
+    }
+
+    #main {
+        flex: 1;
+    }
+
+    .email-content {
+        padding: 1.25rem;
+    }
+}
+
+@media (max-width: 560px) {
+    #list {
+        flex: 1;
+    }
+
+    #main {
+        display: none;
+    }
+
+    .email-content-header {
+        flex-direction: column;
+    }
+
+    .email-content-controls {
+        justify-content: flex-start;
+    }
+}
